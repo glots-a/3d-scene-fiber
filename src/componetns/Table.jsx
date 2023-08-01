@@ -10,7 +10,6 @@ const Table = forwardRef((props, ref) => {
     '/img/models/table/round_wooden_table_01_4k.gltf',
   );
 
-  console.log('is what', isCloseTo);
   return (
     <group position={position} dispose={null} scale={2} ref={ref}>
       {isCloseTo && (

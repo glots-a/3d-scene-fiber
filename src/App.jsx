@@ -13,8 +13,6 @@ export default function App() {
     'Scene',
   );
 
-  console.log('render');
-
   return (
     <Canvas gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<Loader />}>
