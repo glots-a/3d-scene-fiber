@@ -14,15 +14,20 @@ export default function App() {
   );
 
   return (
-    <Canvas gl={{ preserveDrawingBuffer: true }}>
-      <Suspense fallback={<Loader />}>
-        <ScrollControls pages={3} damping={1} maxSpeed={1}>
-          <SheetProvider sheet={sheet}>
-            <Scene />
-            <Environment files="./img/sunflowers_puresky_4k.hdr" background />
-          </SheetProvider>
-        </ScrollControls>
-      </Suspense>
-    </Canvas>
+    <>
+      <Canvas gl={{ preserveDrawingBuffer: true }}>
+        <Suspense fallback={<Loader />}>
+          <ScrollControls pages={3} damping={1} maxSpeed={1}>
+            <SheetProvider sheet={sheet}>
+              <Scene />
+              <Environment files="./img/sunflowers_puresky_4k.hdr" background />
+            </SheetProvider>
+          </ScrollControls>
+        </Suspense>
+      </Canvas>
+      <span id="info" className="heartbeat">
+        Start scrolling
+      </span>
+    </>
   );
 }
