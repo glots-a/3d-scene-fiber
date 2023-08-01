@@ -1,0 +1,28 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgb(45, 46, 45) 0%,
+    rgba(0, 0, 0, 0.902) 100%
+  );
+  overflow: hidden;
+}
+
+#progress {
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  width: 600px;
+  transform: translate(-50%, -50%);
+
+  position: absolute;
+  font-size: 32px;
+  font-family: monospace;
+  color: white;
+  text-align: center;
+  pointer-events: none;
+}
