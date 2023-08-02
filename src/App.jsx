@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, ScrollControls } from '@react-three/drei';
 import { getProject } from '@theatre/core';
@@ -9,14 +9,20 @@ import Scene from './componetns/Scene';
 import Loader from './componetns/Loader';
 
 export default function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const sheet = getProject('Fly Through', { state: cameraAnimation }).sheet(
     'Scene',
   );
 
+  const handleLoading = useCallback(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <>
-      <Canvas gl={{ preserveDrawingBuffer: true }}>
-        <Suspense fallback={<Loader />}>
+      <Canvas gl={{ preserveDrawingBuffer: true }} shadows>
+        <Suspense fallback={<Loader onLoading={handleLoading} />}>
           <ScrollControls pages={3} damping={1} maxSpeed={1}>
             <SheetProvider sheet={sheet}>
               <Scene />
@@ -25,9 +31,11 @@ export default function App() {
           </ScrollControls>
         </Suspense>
       </Canvas>
-      <span id="info" className="heartbeat">
-        Start scrolling
-      </span>
+      {isLoaded && (
+        <span id="info" className="heartbeat">
+          Start scrolling
+        </span>
+      )}
     </>
   );
 }

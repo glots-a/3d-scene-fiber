@@ -28,7 +28,7 @@ body,
 }
 
 #info {
-  position: absolute;
+  position: fixed;
   top: 30px;
   right: 50px;
   text-align: right;
