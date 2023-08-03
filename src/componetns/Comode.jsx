@@ -10,9 +10,7 @@ const Comode = forwardRef((props, ref) => {
   );
   return (
     <group ref={ref} position={position} dispose={null} castShadow scale={2}>
-      {isCloseTo && (
-        <FocusSquare position={[0, 0.75, 0]} size={[1.2, 1.5, 1]} />
-      )}
+      {isCloseTo && <FocusSquare position={[0, 1, 0]} size={[3, 3]} />}
       <mesh
         castShadow
         geometry={nodes.GothicCommode_01.geometry}

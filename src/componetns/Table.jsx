@@ -12,9 +12,7 @@ const Table = forwardRef((props, ref) => {
 
   return (
     <group position={position} dispose={null} scale={2} ref={ref}>
-      {isCloseTo && (
-        <FocusSquare position={[0, 0.75, 0]} size={[1.4, 1.2, 1.4]} />
-      )}
+      {isCloseTo && <FocusSquare position={[0, 1, 0]} size={[2.5, 2.5]} />}
       <mesh
         geometry={nodes.round_wooden_table_01.geometry}
         material={materials.round_wooden_table_01}
